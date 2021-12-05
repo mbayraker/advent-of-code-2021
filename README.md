@@ -13,3 +13,4 @@ You don't need a computer science background to participate - just a little prog
 * [Day 01: Sonar Sweep](Day01/)
 * [Day 02: Dive!](Day02/)
 * [Day 03: Binary Diagnostic](Day03/)
+* [Day 04: Giant Squid](Day04/)

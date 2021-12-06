@@ -5,7 +5,6 @@
 #include <cassert>
 #include <sstream>
 #include <algorithm>
-#include <map>
 #include <array>
 
 namespace
@@ -72,9 +71,6 @@ void day06()
 	std::cout << "[Day06 - P1] Test Answer   = " << p1_test_result << "\n";
 	assert(p1_test_result == 5934);
 
-	// test input
-	input("Day06/day06_test_input");
-
 	auto p2_test_result = part2();
 	std::cout << "[Day06 - P2] Test Answer   = " << p2_test_result << "\n";
 	assert(p2_test_result == 26984457539);
@@ -85,9 +81,6 @@ void day06()
 	auto p1_result = part1();
 	std::cout << "[Day06 - P1] Puzzle Answer = " << p1_result << "\n";
 	assert(p1_result == 363101);
-
-	// puzzle input
-	input("Day06/day06_input");
 
 	auto p2_result = part2();
 	std::cout << "[Day06 - P2] Puzzle Answer = " << p2_result << "\n";

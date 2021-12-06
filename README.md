@@ -15,3 +15,4 @@ You don't need a computer science background to participate - just a little prog
 * [Day 03: Binary Diagnostic](Day03/)
 * [Day 04: Giant Squid](Day04/)
 * [Day 05: Hydrothermal Venture](Day05/)
+* [Day 06: Lanternfish](Day06/)

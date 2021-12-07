@@ -16,3 +16,4 @@ You don't need a computer science background to participate - just a little prog
 * [Day 04: Giant Squid](Day04/)
 * [Day 05: Hydrothermal Venture](Day05/)
 * [Day 06: Lanternfish](Day06/)
+* [Day 07: The Treachery of Whales](Day07/)

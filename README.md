@@ -19,3 +19,4 @@ You don't need a computer science background to participate - just a little prog
 * [Day 07: The Treachery of Whales](Day07/)
 * [Day 08: Seven Segment Search](Day08/)
 * [Day 09: Smoke Basin](Day09/)
+* [Day 10: Syntax Scoring](Day10/)

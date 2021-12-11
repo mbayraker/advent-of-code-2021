@@ -89,7 +89,7 @@ namespace
 				std::transform(a.cbegin(), a.cend(), a.begin(), [](auto& x) { return x + 1; });
 			}
 
-			// check for flash
+			// count flash
 			for (size_t i = 0; i < GRID_SIZE; ++i) {
 				for (size_t j = 0; j < GRID_SIZE; ++j) {
 					flashcnt += count_flash(testarr, std::make_pair(i, j));
@@ -111,24 +111,17 @@ namespace
 				std::transform(a.cbegin(), a.cend(), a.begin(), [](auto& x) { return x + 1; });
 			}
 
-			// mark the flash
+			// count flash
+			int flashcnt = 0;
 			for (size_t i = 0; i < GRID_SIZE; ++i) {
 				for (size_t j = 0; j < GRID_SIZE; ++j) {
-					count_flash(testarr, std::make_pair(i, j));
+					flashcnt += count_flash(testarr, std::make_pair(i, j));
 				}
 			}
 
-			// check for sync
-			size_t zerocnt = 0;
-			for (const auto& a : testarr) {
-				size_t inc = std::count(a.cbegin(), a.cend(), 0);
-				if (inc != GRID_SIZE) {
-					break;
-				}
-
-				if (zerocnt += inc; zerocnt == GRID_SIZE * GRID_SIZE) {
-					return syncstep;
-				}
+			// check for sync flash
+			if (flashcnt == GRID_SIZE * GRID_SIZE) {
+				return syncstep;
 			}
 		}
 

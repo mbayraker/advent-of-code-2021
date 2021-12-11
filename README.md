@@ -20,3 +20,4 @@ You don't need a computer science background to participate - just a little prog
 * [Day 08: Seven Segment Search](Day08/)
 * [Day 09: Smoke Basin](Day09/)
 * [Day 10: Syntax Scoring](Day10/)
+* [Day 11: Dumbo Octopus](Day11/)

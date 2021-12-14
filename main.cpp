@@ -9,6 +9,7 @@ void day08();
 void day09();
 void day10();
 void day11();
+void day12();
 
 int main()
 {
@@ -23,4 +24,5 @@ int main()
 	day09();
 	day10();
 	day11();
+	day12();
 }

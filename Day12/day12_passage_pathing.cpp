@@ -6,6 +6,7 @@
 #include <sstream>
 #include <algorithm>
 #include <unordered_map>
+#include <stack>
 
 namespace
 {
@@ -24,7 +25,7 @@ namespace
 	std::unordered_map<std::string, int> Node::nodemap;
 
 	struct Cave {
-		Cave(size_t n) : adj(n), twicevisit(false) {}
+		Cave(size_t n, bool twice) : adj(n), twicevisit(twice) {}
 
 		void addEdge(const Node& n1, const Node& n2) {
 			adj[n1.idx].push_back(n2);
@@ -33,7 +34,6 @@ namespace
 
 		bool twicevisit;
 		std::vector<std::vector<Node>> adj;
-		std::vector<std::vector<std::string>> fullpaths;
 	};
 
 	std::vector<std::pair<std::string, std::string>> inputvec;
@@ -57,7 +57,7 @@ namespace
 		ifs.close();
 	}
 
-	Cave prepCave()
+	Cave prepCave(bool twice)
 	{
 		Node::nodemap.clear();
 
@@ -70,7 +70,7 @@ namespace
 			}
 		}
 
-		Cave cave{ Node::nodemap.size() };
+		Cave cave{ Node::nodemap.size(), twice };
 		for (const auto& path : inputvec) {
 			cave.addEdge(Node{path.first}, Node{path.second});
 		}
@@ -78,69 +78,54 @@ namespace
 		return cave;
 	}
 
-	void dfsCave(Cave& cave, const Node& currNode, std::vector<std::string>& currPath,
-		std::vector<bool>& visited, int& twiceidx)
+	int dfsCaveIter(Cave& cave, const Node& startNode)
 	{
-		if (currNode.islower()) {
-			visited[currNode.idx] = true;
-		}
+		std::stack<std::tuple<Node, std::string, bool>> s; // node, current path, twice
+		int ans = 0;
 
-		currPath.push_back(currNode.name);
+		s.emplace(startNode, startNode.name, false);
 
-		if (currNode.name == "end") {
-			cave.fullpaths.push_back(currPath);
-		}
-		else {
-			for (const auto& nb : cave.adj[currNode.idx]) {
-				if (nb.name == "start") {
-					continue;
+		while (!s.empty()) {
+			auto [node, path, twice] = s.top();
+			s.pop();
+
+			if (node.name == "end") {
+				++ans;
+				continue;
+			}
+			
+			for (const auto& nb : cave.adj[node.idx]) {
+				if (!nb.islower()) {
+					// big cave
+					s.emplace(nb, path + nb.name, twice);
 				}
-
-				if (cave.twicevisit && (twiceidx < 0) && nb.islower() && visited[nb.idx]) {
-					// first time visiting a small cave twice
-					twiceidx = nb.idx;
-					dfsCave(cave, nb, currPath, visited, twiceidx);
-					continue;
-				}
-
-				if (!visited[nb.idx]) {
-					dfsCave(cave, nb, currPath, visited, twiceidx);
+				else {
+					// small cave
+					if (auto pos = path.find(nb.name); pos == std::string::npos) {
+						// nb does not exists on the current path
+						s.emplace(nb, path + nb.name, twice);
+					}
+					else if (cave.twicevisit && !twice && nb.name != "start") {
+						// visiting small cave twice
+						s.emplace(nb, path + nb.name, true);
+					}
 				}
 			}
 		}
 
-		currPath.pop_back();
-		if (cave.twicevisit && (twiceidx == currNode.idx)) {
-			twiceidx = -1;
-		}
-		else {
-			visited[currNode.idx] = false;
-		}
+		return ans;
 	}
 
 	int part1()
 	{
-		Cave cave{ prepCave() };
-
-		std::vector<bool> visited(Node::nodemap.size(), false);
-		std::vector<std::string> path;
-		int idx{ -1 };
-		
-		dfsCave(cave, Node{ "start" }, path, visited, idx);
-		return cave.fullpaths.size();
+		Cave cave{ prepCave(false) };
+		return dfsCaveIter(cave, Node{ "start" });
 	}
 
 	int part2()
 	{
-		Cave cave{ prepCave() };
-		cave.twicevisit = true;
-
-		std::vector<bool> visited(Node::nodemap.size(), false);
-		std::vector<std::string> path;
-		int idx{ -1 };
-
-		dfsCave(cave, Node{ "start" }, path, visited, idx);
-		return cave.fullpaths.size();
+		Cave cave{ prepCave(true) };
+		return dfsCaveIter(cave, Node{ "start" });
 	}
 }
 

@@ -25,3 +25,4 @@ You don't need a computer science background to participate - just a little prog
 * [Day 13: Transparent Origami](Day13/)
 * [Day 14: Extended Polymerization](Day14/)
 * [Day 15: Chiton](Day15/)
+* [Day 16: Packet Decoder](Day16/)

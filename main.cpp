@@ -13,6 +13,7 @@ void day12();
 void day13();
 void day14();
 void day15();
+void day16();
 
 int main()
 {
@@ -31,4 +32,5 @@ int main()
 	day13();
 	day14();
 	day15();
+	day16();
 }

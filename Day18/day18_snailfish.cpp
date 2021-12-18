@@ -101,9 +101,8 @@ namespace
 		// left  : regular number divided by two and rounded down
 		// right : regular number divided by two and rounded up
 
-		size_t prevNumOfDigit = 1, posend = pos;
-		while (std::isdigit(str[posend + 1])) {
-			++posend;
+		size_t prevNumOfDigit = 1;
+		while (std::isdigit(str[pos + prevNumOfDigit])) {
 			++prevNumOfDigit;
 		}
 

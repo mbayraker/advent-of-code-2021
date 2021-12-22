@@ -29,3 +29,4 @@ You don't need a computer science background to participate - just a little prog
 * [Day 17: Trick Shot](Day17/)
 * [Day 18: Snailfish](Day18/)
 * [Day 19: Beacon Scanner](Day19/)
+* [Day 20: Trench Map](Day20/)

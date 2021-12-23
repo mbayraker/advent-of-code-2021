@@ -127,10 +127,10 @@ namespace
 		for (const auto& [rcube, rcount] : reactor) {
 			auto &[rx1, rx2, ry1, ry2, rz1, rz2] = rcube;
 
-			result += ((long long)(rx2 - rx1 + 1) *
-					   (long long)(ry2 - ry1 + 1) *
-					   (long long)(rz2 - rz1 + 1) *
-					   (long long)(rcount));
+			result += ((long long)rx2 - rx1 + 1) *
+					  ((long long)ry2 - ry1 + 1) *
+					  ((long long)rz2 - rz1 + 1) *
+					  rcount;
 		}
 
 		return result;

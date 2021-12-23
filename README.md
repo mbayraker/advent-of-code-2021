@@ -31,3 +31,4 @@ You don't need a computer science background to participate - just a little prog
 * [Day 19: Beacon Scanner](Day19/)
 * [Day 20: Trench Map](Day20/)
 * [Day 21: Dirac Dice](Day21/)
+* [Day 22: Reactor Reboot](Day22/)

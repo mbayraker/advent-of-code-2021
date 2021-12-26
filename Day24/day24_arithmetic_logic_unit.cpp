@@ -15,7 +15,7 @@ namespace
 	constexpr int CONSTANTS_PER_DIGIT = 10;
 
 	std::array<std::array<int, CONSTANTS_PER_DIGIT>, NUM_OF_DIGITS> constants{};
-	
+
 	void input(const char* fpath)
 	{
 		std::ifstream ifs{ fpath };
@@ -50,7 +50,7 @@ namespace
 	struct pow<E, 0> {
 		static constexpr long long value = 1;
 	};
-	
+
 	long long pow10(int n)
 	{
 		static constexpr std::array<long long, NUM_OF_DIGITS> lookup = {

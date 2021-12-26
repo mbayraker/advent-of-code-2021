@@ -94,7 +94,7 @@ namespace
 			// if not alternating, always keep track of light pixels
 			// otherwise, alternate tracking between iterations (start with light)
 			bool trackOn = alternate ? (run % 2 == 0) : true;
-			
+
 			for (int row = minR - 1; row <= maxR + 1; ++row) {
 				for (int col = minC - 1; col <= maxC + 1; ++col) {
 					std::bitset<9> bin;

@@ -56,7 +56,7 @@ namespace
 				int x = 0, y = 0, dx = DX, dy = DY,
 					ytop = std::numeric_limits<int>::min();
 				bool shot = false;
-				
+
 				while (true) {
 					x += dx;
 					y += dy;

@@ -48,11 +48,11 @@ namespace
 		for (std::string line{}; std::getline(ifs, line);) {
 			if (auto delpos = line.find(','); delpos != std::string::npos) {
 				inputvec.emplace_back( std::stoi(line.substr(0, delpos)),
-                                       std::stoi(line.substr(delpos + 1)) );
+									   std::stoi(line.substr(delpos + 1)) );
 			}
 			else if (delpos = line.find('='); delpos != std::string::npos) {
 				foldvec.emplace_back( line.substr(delpos - 1, 1)[0],
-                                      std::stoi(line.substr(delpos + 1)) );
+									  std::stoi(line.substr(delpos + 1)) );
 			}
 		}
 		ifs.close();
@@ -93,7 +93,7 @@ namespace
 					}
 				}
 			}
-			
+
 			// erase after folding
 			for (auto& cvec : grid.g) {
 				cvec.erase(cvec.begin() + line, cvec.end());

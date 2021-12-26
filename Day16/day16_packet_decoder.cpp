@@ -160,7 +160,7 @@ namespace
 	{
 		// add version to sum
 		packet.addVersion(packet.getBits(3));
-		
+
 		// get type
 		auto type = packet.getBits(3);
 

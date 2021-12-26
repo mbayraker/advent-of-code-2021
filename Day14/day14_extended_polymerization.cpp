@@ -29,7 +29,7 @@ namespace
 		for (std::string line{}; std::getline(ifs, line);) {
 			if (auto delpos = line.find(delim); delpos != std::string::npos) {
 				inputmap.emplace( line.substr(0, delpos),
-                                  line.substr(delpos + delim.length())[0] );
+								  line.substr(delpos + delim.length())[0] );
 			}
 		}
 		ifs.close();

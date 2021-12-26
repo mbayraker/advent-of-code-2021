@@ -118,7 +118,7 @@ namespace
 	}
 
 	bool reduceNum(std::string& reducedstr, size_t pos)
-	{	
+	{
 		// 1st: explode
 		std::vector<char> indent;
 		size_t n = pos;

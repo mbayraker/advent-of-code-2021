@@ -34,3 +34,4 @@ You don't need a computer science background to participate - just a little prog
 * [Day 22: Reactor Reboot](Day22/)
 * [Day 23: Amphipod](Day23/)
 * [Day 24: Arithmetic Logic Unit](Day24/)
+* [Day 25: Sea Cucumber](Day25/)

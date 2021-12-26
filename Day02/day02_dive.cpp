@@ -86,7 +86,7 @@ void day02()
 
 	// puzzle input
 	input("Day02/day02_input");
-	
+
 	auto p1_result = part1();
 	std::cout << "[Day02 - P1] Puzzle Answer = " << p1_result << "\n";
 	assert(p1_result == 2027977);

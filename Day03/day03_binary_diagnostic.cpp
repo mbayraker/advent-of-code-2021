@@ -49,7 +49,7 @@ namespace
 
 			bitcountmap.clear();
 		}
-		
+
 		int result = stoi(gamma, 0, 2) * stoi(epsilon, 0, 2);
 		return result;
 	}

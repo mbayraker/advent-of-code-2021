@@ -126,7 +126,7 @@ namespace
 		for (const auto& lp : lowpoints) {
 			std::vector<bool> visitvec(cave.h.size(), false);
 			std::queue<Cave::Point> bfsque;
-			
+
 			visitvec[lp.first] = true;
 			bfsque.push(lp);
 			int basincnt = 1;
@@ -137,7 +137,7 @@ namespace
 
 				for (size_t i = 1; i < cave.h[p.first].size(); ++i) {
 					auto adj = cave.h[p.first][i];
-					
+
 					if ((!visitvec[adj.first]) && (adj.second != '9') && (p.second < adj.second)) {
 						visitvec[adj.first] = true;
 						bfsque.push(adj);

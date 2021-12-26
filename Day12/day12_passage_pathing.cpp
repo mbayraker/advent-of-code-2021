@@ -51,7 +51,7 @@ namespace
 		for (std::string line{}; std::getline(ifs, line);) {
 			if (auto delpos = line.find('-'); delpos != std::string::npos) {
 				inputvec.emplace_back(line.substr(0, delpos),
-                                      line.substr(delpos + 1));
+									  line.substr(delpos + 1));
 			}
 		}
 		ifs.close();
@@ -93,7 +93,7 @@ namespace
 				++ans;
 				continue;
 			}
-			
+
 			for (const auto& nb : cave.adj[node.idx]) {
 				if (!nb.islower()) {
 					// big cave

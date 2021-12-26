@@ -39,7 +39,7 @@ namespace
 			{ '}', 1197 },
 			{ '>', 25137 }
 		};
-		
+
 		unsigned long long result = 0;
 		for (const auto& s : inputvec) {
 			std::stack<char> syntaxstack{};

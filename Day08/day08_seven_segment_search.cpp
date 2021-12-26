@@ -56,7 +56,7 @@ namespace
 				return (s.length() == 2) || (s.length() == 4) ||
 					   (s.length() == 3) || (s.length() == 7);
 			};
-			
+
 			result += std::count_if(entry.output.cbegin(), entry.output.cend(), f);
 		}
 
@@ -83,7 +83,7 @@ namespace
 			{49, 8}, // abcdefg
 			{45, 9}  // abcdfg
 		};
-		
+
 		for (const auto& entry : inputvec) {
 			// calculate the score for each character in the notes
 			std::map<char, int> segmap{};
